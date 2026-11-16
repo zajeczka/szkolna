@@ -1,0 +1,21 @@
+[
+  {
+    "id": "b869b4beaa397885",
+    "title": "komputer nie dziala",
+    "description": "qaaaa",
+    "room": "201",
+    "priority": "Średni",
+    "status": "Oczekujące",
+    "createdAt": "2026-11-10T11:35:42.111013+01:00"
+  },
+  {
+    "id": "2c505a83527d09c3",
+    "title": "ssss",
+    "description": "sss",
+    "room": "ss",
+    "priority": "Średni",
+    "status": "Krytyczne",
+    "createdAt": "2026-11-16T14:58:16.461186+01:00",
+    "statusChangedAt": "2026-11-16T15:01:18.833178+01:00"
+  }
+]

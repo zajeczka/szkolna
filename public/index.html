@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f6f8" />
+    <title>Helpdesk szkolny</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <body>
+    <header class="pasek-gorny">
+      <a class="marka" href="/">
+        <span>Pomoc<span class="marka-jasna"> szkolna</span></span>
+      </a>
+
+      <div class="akcje-gorne">
+        <span class="status-systemu"><i></i> System działa</span>
+        <button class="przycisk-admina" id="otworzPanelAdmina">
+          Panel administratora <span>↗</span>
+        </button>
+        <button class="przycisk-admina ukryty" id="wyloguj">Wyloguj</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="sekcja-powitalna">
+        <div class="tekst-powitalny">
+          <div class="nadtytul"><span>●</span> ZGŁOSZENIA TECHNICZNE</div>
+          <h1>Coś nie działa?<br /><span>Już się tym zajmujemy.</span></h1>
+          <p>
+            Zgłoś problem ze sprzętem lub internetem. Zespół IT w szkole szybko
+            się nim zajmie.
+          </p>
+          <div class="notatka-powitalna">
+            <span class="ikona-notatki">↳</span>
+            Każde zgłoszenie trafia prosto do szkolnego zespołu IT
+          </div>
+        </div>
+
+        <div class="ilustracja-powitalna" aria-hidden="true">
+          <div class="orbita-ilustracji orbita-pierwsza"></div>
+          <div class="orbita-ilustracji orbita-druga"></div>
+          <div class="karta-ilustracji karta-tylna">
+            ··· <b>ONLINE</b>
+            <span>Połączenie stabilne</span>
+            <i>↗</i>
+          </div>
+          <div class="karta-ilustracji karta-glowna">
+            <div class="ikona-ilustracji">⌘</div>
+            <b>Centrum pomocy</b>
+            <span>Jesteśmy tu, żeby pomóc.</span>
+            <div class="pasek-postepu"><i></i></div>
+            <small>ŚREDNI CZAS ODPOWIEDZI <strong>~ 2 godz.</strong></small>
+          </div>
+        </div>
+      </section>
+
+      <section class="podsumowanie-statystyk" aria-label="Podsumowanie zgłoszeń">
+        <div class="statystyka">
+          <span class="ikona-statystyki fioletowy">▤</span>
+          <div><strong id="licznikWszystkich">0</strong><span>Wszystkie zgłoszenia</span></div>
+        </div>
+        <div class="statystyka">
+          <span class="ikona-statystyki bursztynowy">◷</span>
+          <div><strong id="licznikOczekujacych">0</strong><span>Oczekujące</span></div>
+        </div>
+        <div class="statystyka">
+          <span class="ikona-statystyki zielony">✓</span>
+          <div><strong id="licznikRozwiazanych">0</strong><span>Rozwiązane</span></div>
+        </div>
+        <div class="stopka-statystyk">Aktualizowane na bieżąco <span>↻</span></div>
+      </section>
+
+      <div class="siatka-tresci">
+        <section class="karta-formularza">
+          <div class="naglowek-sekcji">
+            <div>
+              <span class="nadtytul-sekcji">NOWE ZGŁOSZENIE</span>
+              <h2>Opisz problem</h2>
+            </div>
+            <span class="informacja-o-wymaganych-polach">* pola wymagane</span>
+          </div>
+
+          <form id="formularzZgloszenia">
+            <label for="tytul">Tytuł problemu <em>*</em></label>
+            <input
+              id="tytul"
+              name="title"
+              maxlength="100"
+              placeholder="np. Komputer nie chce się uruchomić"
+              required
+            />
+
+            <div class="wiersz-pol">
+              <div class="pole-formularza">
+                <label for="sala">Sala lub miejsce <em>*</em></label>
+                <input
+                  id="sala"
+                  name="room"
+                  maxlength="40"
+                  placeholder="np. Sala 204"
+                  required
+                />
+              </div>
+              <div class="pole-formularza">
+                <label for="priorytet">Priorytet <em>*</em></label>
+                <div class="pole-wyboru">
+                  <select id="priorytet" name="priority">
+                    <option value="Niski">Niski</option>
+                    <option value="Średni" selected>Średni</option>
+                    <option value="Wysoki">Wysoki</option>
+                  </select>
+                  <span>⌄</span>
+                </div>
+              </div>
+            </div>
+
+            <label for="opis">Opis problemu <em>*</em></label>
+            <textarea
+              id="opis"
+              name="description"
+              maxlength="1000"
+              rows="4"
+              placeholder="Opisz, co się dzieje. Co próbowałeś już zrobić?"
+              required
+            ></textarea>
+
+            <div class="dol-formularza">
+              <span class="informacja-o-prywatnosci">⌑ &nbsp; Twoje zgłoszenie widzi tylko zespół IT</span>
+              <button class="przycisk-wysylania" type="submit">
+                Wyślij zgłoszenie <span>→</span>
+              </button>
+            </div>
+            <p class="komunikat-formularza" id="komunikatFormularza" role="status"></p>
+          </form>
+        </section>
+
+        <section class="sekcja-listy-zgloszen">
+          <div class="naglowek-listy-zgloszen">
+            <div>
+              <span class="nadtytul-sekcji">CENTRUM ZGŁOSZEŃ</span>
+              <h2>Ostatnie zgłoszenia <span class="etykieta-licznika" id="licznikListy">0</span></h2>
+            </div>
+            <button class="przycisk-odswiezania" id="odswiezListe" title="Odśwież listę">↻</button>
+          </div>
+
+          <div class="filtry">
+            <div class="pole-szukania">
+              <span>⌕</span>
+              <input id="szukaj" placeholder="Szukaj zgłoszeń..." />
+            </div>
+            <div class="pole-wyboru wybor-filtra">
+              <select id="filtrStatusu" aria-label="Filtruj status">
+                <option value="Aktywne" selected>Aktywne zgłoszenia</option>
+                <option value="Wszystkie">Wszystkie statusy</option>
+                <option>Oczekujące</option>
+                <option>W trakcie</option>
+                <option>Rozwiązane</option>
+              </select>
+              <span>⌄</span>
+            </div>
+          </div>
+
+          <div class="lista-zgloszen" id="listaZgloszen">
+            <div class="pusty-wynik">
+              <span>▤</span>
+              <strong>Ładowanie zgłoszeń...</strong>
+            </div>
+          </div>
+          <p class="stopka-listy"><span>●</span> Dane są odświeżane automatycznie</p>
+        </section>
+      </div>
+
+      <footer>
+        <span> &nbsp; Pomoc szkolna</span>
+        <span>Razem dbamy o sprawne działanie szkoły.</span>
+        <span>© 2026</span>
+      </footer>
+    </main>
+
+    <dialog id="oknoAdmina">
+      <form id="formularzAdmina" class="karta-okna">
+        <button
+          type="button"
+          class="zamknij-okno"
+          id="zamknijOkno"
+          aria-label="Zamknij"
+        >
+          ×
+        </button>
+        <span class="nadtytul-sekcji">PANEL ADMINISTRATORA</span>
+        <h2>Zarządzaj zgłoszeniami</h2>
+        <p>Zaloguj się, aby zmieniać statusy i usuwać zgłoszenia.</p>
+        <label for="hasloAdmina">Hasło administratora</label>
+        <input id="hasloAdmina" type="password" autocomplete="current-password" required />
+        <p id="komunikatLogowania" class="komunikat-formularza"></p>
+        <button class="przycisk-wysylania" type="submit">
+          Zaloguj się <span>→</span>
+        </button>
+      </form>
+    </dialog>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

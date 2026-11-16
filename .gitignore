@@ -1,0 +1,6 @@
+# Pliki Pythona i środowisko wirtualne
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
