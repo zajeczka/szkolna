@@ -76,7 +76,11 @@ function pokazZgloszenia() {
     return pasujeStan && tekstZgloszenia.includes(szukanyTekst);
   });
 
-  pobierzElement("licznikWszystkich").textContent = zgloszenia.length;
+  const liczbaAktywnych = zgloszenia.filter(
+    (zgloszenie) => zgloszenie.status !== "Rozwiązane",
+  ).length;
+
+  pobierzElement("licznikWszystkich").textContent = liczbaAktywnych;
   pobierzElement("licznikOczekujacych").textContent = zgloszenia.filter(
     (zgloszenie) => zgloszenie.status === "Oczekujące",
   ).length;

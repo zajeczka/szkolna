@@ -42,5 +42,6 @@ py app.py
 
 - Przyjmuje zgłoszenie z tytułem, opisem, salą i priorytetem.
 - Pokazuje listę zgłoszeń i pozwala je wyszukiwać.
+- Licznik „Aktywne zgłoszenia” zmniejsza się po rozwiązaniu sprawy, a licznik „Rozwiązane” rośnie.
 - Pozwala administratorowi zmienić status, oznaczyć zgłoszenie jako rozwiązane przyciskiem albo je usunąć.
 - Pozwala ustawić status „Krytyczne”. Jeśli zgłoszenie krytyczne czeka ponad 24 godziny bez zmiany statusu, zostaje oznaczone na czerwono i przeniesione na początek listy.
