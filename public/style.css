@@ -4,6 +4,7 @@
     --kolor-linii:#ececf0;
     --fioletowy:#6558dc;
     --tlo:#f6f6f8;
+    --powierzchnia-kart:#f0f0f3;
     --zielony:#25835b;
     --bursztynowy:#b87516
 }
@@ -35,16 +36,6 @@ body {
     font-family:Manrope,sans-serif;
     font-size:17px;
     font-weight:800
-}
-.znak-marki {
-    display:grid;
-    place-items:center;
-    width:30px;
-    height:30px;
-    color:white;
-    background:var(--fioletowy);
-    border-radius:9px;
-    font-size:20px
 }
 .marka-jasna {
     font-weight:500;
@@ -160,7 +151,7 @@ main {
 }
 .karta-ilustracji {
     position:absolute;
-    background:white;
+    background:var(--powierzchnia-kart);
     box-shadow:0 15px 38px #5751a51a;
     border:1px solid #f1f0fb;
     border-radius:12px
@@ -242,15 +233,8 @@ main {
     color:#6058bf;
     font-size:8px
 }
-.ozdobna-gwiazdka {
-    position:absolute;
-    color:#8378e8;
-    font-size:28px;
-    left:4px;
-    top:74px
-}
 .podsumowanie-statystyk {
-    background:white;
+    background:var(--powierzchnia-kart);
     border:1px solid #eeeeF1;
     border-radius:12px;
     margin-top:14px;
@@ -313,7 +297,7 @@ main {
     margin-top:16px
 }
 .karta-formularza,.sekcja-listy-zgloszen {
-    background:white;
+    background:var(--powierzchnia-kart);
     border:1px solid #eeeef1;
     border-radius:12px;
     padding:26px
